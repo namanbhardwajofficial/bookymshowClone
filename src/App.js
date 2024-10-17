@@ -17,6 +17,7 @@ const App = () => {
   }
 
   const [seatsSelected, SetseatsSelected] = useState([]);
+  const [color, setColor] = useState({});
 
   const checkifSelectionPossible = (seatsSelected) => {
     return seatsSelected.length < 5;
@@ -26,10 +27,12 @@ const App = () => {
     if (checkifSelectionPossible(seatsSelected)) {
       if (!seatsSelected.includes(seat)) {
         SetseatsSelected((prevSeat) => [seat, ...prevSeat]);
+        setColor((prevColor) => ({ ...prevColor, [seat]: "#83f28f" }));
       } else {
         SetseatsSelected((prevSeat) =>
           prevSeat.filter((seatRemove) => seatRemove !== seat)
         );
+        setColor((prevColor) => ({ ...prevColor, [seat]: "white" }));
       }
     } else {
       alert(`You have already booked the 5 seats for a user"${seatsSelected}`);
@@ -37,19 +40,23 @@ const App = () => {
   };
   const clearSeats = () => {
     SetseatsSelected([]);
+    setColor({});
   };
 
   return (
     <>
-      <h1>Concert Seat Selection</h1>
-      <h2>
+      <h1 className="app-name">Concert Seat Selection</h1>
+      <h2 className="app-name">
         Seats Booked {seatsSelected.length}: {seatsSelected.join(",  ")}
       </h2>
-      <h3 onClick={() => clearSeats()}>Clear All Seats</h3>
+      <button onClick={() => clearSeats()} className="close">
+        Clear All Seats
+      </button>
       <div className="concert">
         {vipSeat.map((seat) => {
           return (
             <div
+              style={{ backgroundColor: color[seat] || "white" }}
               key={seat}
               className="vip-seat"
               onClick={() => bookTicketForConcert(seat)}
@@ -63,6 +70,7 @@ const App = () => {
         {economySeat.map((economySeat) => {
           return (
             <div
+              style={{ backgroundColor: color[economySeat] || "white" }}
               key={economySeat}
               className="economy-seat"
               onClick={() => bookTicketForConcert(economySeat)}
@@ -76,6 +84,7 @@ const App = () => {
         {regularSeat.map((regularSeat) => {
           return (
             <div
+              style={{ backgroundColor: color[regularSeat] || "white" }}
               key={regularSeat}
               className="regular-seat"
               onClick={() => bookTicketForConcert(regularSeat)}

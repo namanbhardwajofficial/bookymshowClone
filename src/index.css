@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.app-name {
+  text-align: center;
+}
+
 .concert {
   display: flex;
   flex-wrap: wrap;
