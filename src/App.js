@@ -49,9 +49,12 @@ const App = () => {
       <h2 className="app-name">
         Seats Booked {seatsSelected.length}: {seatsSelected.join(",  ")}
       </h2>
-      <button onClick={() => clearSeats()} className="close">
-        Clear All Seats
-      </button>
+      <div className="parent-button">
+        <button className="clear-button" onClick={() => clearSeats()}>
+          Clear All Seats
+        </button>
+      </div>
+
       <div className="concert">
         {vipSeat.map((seat) => {
           return (

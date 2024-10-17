@@ -11,6 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.parent-button {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+}
+.clear-button {
+  height: 36px;
+  width: auto;
+  background-color: #c83333;
+  border-radius: 4px;
+  margin: 8px;
+  padding: 8px 8px;
+  color: white;
+}
 .app-name {
   text-align: center;
 }
@@ -21,21 +35,21 @@ code {
 }
 
 .vip-seat {
-  height: 200px;
-  width: 200px;
-  border: 1px solid black;
-  margin: 25px;
+  height: 150px;
+  width: 150px;
+  border: 1px solid red;
+  margin: 40px;
 }
 
 .economy-seat {
-  height: 200px;
-  width: 200px;
-  border: 1px solid black;
-  margin: 18px;
+  height: 100px;
+  width: 120px;
+  border: 1px solid orangered;
+  margin: 25px;
 }
 .regular-seat {
-  height: 200px;
-  width: 200px;
-  border: 1px solid black;
+  height: 80px;
+  width: 100px;
+  border: 1px solid rosybrown;
   margin: 10px;
 }
